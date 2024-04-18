@@ -47,9 +47,11 @@ export interface ButtonProps
   loadingIcon?: Partial<IconProps>;
   arrowMode?: boolean;
   arrowIcon?: Partial<IconProps>;
-  underLineMode?: {
-    className: string;
-  };
+  underLineMode?:
+    | boolean
+    | {
+        className: string;
+      };
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -76,11 +78,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const iconRef = React.useRef(null);
     const [iconWidth, setIconWidth] = React.useState(null);
     React.useEffect(() => {
-      iconRef &&
-        iconRef!.current &&
-        //@ts-ignore
-        setIconWidth(iconRef!.current.clientWidth);
-       
+      //@ts-ignore
+      setIconWidth(iconRef?.current?.clientWidth ?? 20);
     }, [iconRef]);
 
     return (
@@ -104,12 +103,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             {icon && (
               <Icon
                 {...icon}
-                ref={iconRef}
                 className={cn(
                   "me-2 transition-all size-5 relative",
                   icon.className,
                   arrowMode && "  group-hover:opacity-0"
                 )}
+                ref={iconRef}
               />
             )}
             <div
@@ -138,8 +137,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             {underLineMode && (
               <div
                 className={cn(
-                  "absolute transition-all bottom-0 h-1 bg-black w-full group-hover:translate-x-0 -translate-x-full  ",
-                  underLineMode.className
+                  "absolute transition-all bottom-0 h-1 gradient-animation w-full group-hover:translate-x-0 -translate-x-full  ",
+                  typeof underLineMode == "object" && underLineMode.className
                 )}
               ></div>
             )}

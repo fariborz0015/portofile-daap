@@ -6,93 +6,30 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
+import dynamic from "next/dynamic";
+import AboutMe from "@/components/pages/index/proto/AboutMe";
+import { CardTitle } from "@/components/ui/card";
+import Title from "@/components/utils/Title";
+import ActiveBox from "@/components/utils/ActiveBox";
+const Hero = dynamic(() => import("@/components/pages/index/hero/Hero"), {
+  ssr: false,
+});
 
 export default function Home() {
+ 
   return (
     <>
-      <div className="w-full z-50 h-14 sticky top-4 mt-4 backdrop-blur-sm bg-gray-700/20 rounded-lg container mx-auto flex items-center gap-4">
-        <Link href={"#"}>
-          <Image
-            src="/assets/images/logo.svg"
-            width={120}
-            height={40}
-            alt="fariborzamm"
-            className="filter  invert "
-          />
-        </Link>
-        <div className=" flex-1 flex items-center h-full gap-4">
-          <Button
-            variant={"ghost-glass"}
-            icon={{
-              icon: "line-md:account",
-            }}
-            arrowMode
-            underLineMode={{
-              className: "gradient-animation",
-            }}
-          >
-            Buy Coffee
-          </Button>
-          <Button
-            variant={"ghost-glass"}
-            icon={{
-              icon: "line-md:account",
-            }}
-            arrowMode
-            underLineMode={{
-              className: "gradient-animation",
-            }}
-          >
-            Buy Coffee
-          </Button>
-        </div>
-        <div>
-          <Button
-            key={"s"}
-            variant={"ghost-glass"}
-            icon={{
-              icon: "line-md:document",
-            }}
-            arrowMode
-            arrowIcon={{
-              icon: "line-md:download-outline",
-            }}
-          >
-            My Resume
-          </Button>
-        </div>
-      </div>
-
       <div
         className={`flex min-h-screen flex-col items-center justify-between   `}
       >
-        <div className="w-full absolute h-screen -z-100 ">
-          <Image
-            src={"/assets/images/moons.webp"}
-            className="Images_hollowplanets__NOFlf"
-            width={1300}
-            height={1300}
-            alt=""
-          />
-          <div className="planet">
-            <Image
-              src={"/assets/images/planet.svg"}
-              className="Images_bigplanet__LgSiS"
-              width={200}
-              height={200}
-              alt=""
-            />
-          </div>
-          <Image
-            src={"/assets/images/planet.svg"}
-            className="Images_smallplanet__JD3DP"
-            width={200}
-            height={200}
-            alt=""
-          />
-        </div>
-        <div className="container h-screen  relative z-100  mt-40 max-w-[700px] justify-center   ">
-          <div className="  ">
+        {/* Hero Section   */}
+        <Hero />
+        <ActiveBox className="w-40 h-40" light={{ lightColor: "blue", lightSize: 200 }}/>
+         
+   
+        <div className="container relative z-20  h-screen  flex items-center   justify-center   ">
+          <div className="  sm:backdrop-blur-sm  pt-20 ">
             <h1 className="welcomeText">Fariborz Dapp</h1>
             <p className="font-bold mt-2">
               Hi ✌️, Welcome to my Dapp
@@ -110,6 +47,19 @@ export default function Home() {
               This Project on Github
             </Button>
           </div>
+        </div>
+        {/* About me Section */}
+        <div className="w-full animated-container sm:container sm:p-0 p-6 space-y-4">
+          <Title title="Who Am I ?" description="my activity area" />
+          <AboutMe />
+        </div>
+        {/* Skills Section */}
+        <div className="w-full animated-container sm:container sm:p-0 p-6 space-y-4 mt-14">
+          <Title title="Skills " description="And Tools" />
+          <AboutMe />
+        </div>
+      
+        {/* <div className="container  relative z-100  mt-40 max-w-[700px] justify-center   ">
           <div className="mt-4  ">
             <WalletStatus />
           </div>
@@ -129,7 +79,7 @@ export default function Home() {
               </div>
             </TabsContent>
           </Tabs>
-        </div>
+        </div> */}
       </div>
     </>
   );

@@ -13,7 +13,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: #007aff;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -55,7 +55,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
+    --primary: 211, 100%, 50%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -93,13 +93,15 @@
   left: 0;
   opacity: 0.8;
   position: absolute;
-  top: 0;
+  bottom: 0;
   width: 100%;
   z-index: -1;
 }
 .Images_bigplanet__LgSiS {
-  animation: Images_planet-move__6TxmG 120s linear infinite;
-  filter: hue-rotate(-40deg) brightness(0.9);
+  animation: blur-animation 2s ease-in infinite,
+    Images_planet-move__6TxmG 120s linear infinite,
+    bounce-animation-free 10s ease-in infinite;
+  filter: hue-rotate(-40deg) brightness(0.9) blur(2px);
   height: 700px;
   left: 20px;
   top: -400px;
@@ -116,11 +118,11 @@
   z-index: -1;
 }
 .Images_smallplanet__JD3DP {
-  animation: Images_planet-move__6TxmG 40s linear infinite;
+  animation: Images_planet-move__6TxmG 35s linear infinite;
   aspect-ratio: 1/1;
   height: 250px;
   right: 120px;
-  top: 400px;
+  top: 70%;
   width: 250px;
 }
 @media screen and (max-width: 1200px) {
@@ -134,7 +136,7 @@
   }
   .Images_smallplanet__JD3DP {
     height: 350px;
-    top: 300px;
+    top: 500px;
     width: 350px;
   }
   .Images_hollowplanets__NOFlf {
@@ -145,7 +147,6 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
   animation: Hero_gradient-animation__0sEHD 8s linear infinite;
   background-image: var(--gradient-main-loop);
   background-position: 0;
@@ -155,53 +156,32 @@
   text-transform: uppercase;
   width: -moz-fit-content;
   width: fit-content;
+  backdrop-filter: blur(4px);
 }
 .gradient-animation {
   animation: Hero_gradient-animation__0sEHD 3s linear infinite;
   background-image: var(--gradient-main-loop);
   background-size: 200% 100%;
 }
-@keyframes Skills_planet-move__3kQRq {
-  0% {
-    transform: translate3d(0, 30px, 0) rotate(0deg);
-  }
-  8.33% {
-    transform: translate3d(15px, 25px, 0) rotate(30deg);
-  }
-  16.67% {
-    transform: translate3d(25px, 15px, 0) rotate(60deg);
-  }
-  25% {
-    transform: translate3d(30px, 0, 0) rotate(90deg);
-  }
-  33.33% {
-    transform: translate3d(25px, -15px, 0) rotate(120deg);
-  }
-  41.67% {
-    transform: translate3d(15px, -25px, 0) rotate(150deg);
-  }
-  50% {
-    transform: translate3d(0, -30px, 0) rotate(180deg);
-  }
-  58.33% {
-    transform: translate3d(-15px, -25px, 0) rotate(210deg);
-  }
-  66.67% {
-    transform: translate3d(-25px, -15px, 0) rotate(240deg);
-  }
-  75% {
-    transform: translate3d(-30px, 0, 0) rotate(270deg);
-  }
-  83.33% {
-    transform: translate3d(-25px, 15px, 0) rotate(300deg);
-  }
-  91.67% {
-    transform: translate3d(-15px, 25px, 0) rotate(330deg);
-  }
-  to {
-    transform: translate3d(0, 30px, 0) rotate(1turn);
-  }
+.blur-animation-free {
+  animation: blur-animation-free 10s ease-in infinite;
 }
+
+.aboutme-text strong {
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: Hero_gradient-animation__0sEHD 8s linear infinite;
+  background-image: var(--gradient-main-loop);
+  background-position: 0;
+  background-size: 200% 100%;
+}
+.aboutme-text b {
+  text-transform: uppercase;
+  color: #257cff;
+}
+
+ 
 
 @keyframes Images_planet-move__6TxmG {
   0% {
@@ -244,23 +224,50 @@
     transform: translate3d(0, 30px, 0) rotate(1turn);
   }
 }
-@keyframes Images_gradient-animation___80k_ {
+ 
+@keyframes blur-animation {
   0% {
-    background-position: 0;
+    filter: hue-rotate(-40deg) brightness(0.9) blur(2px);
   }
   to {
-    background-position: 400%;
+    filter: hue-rotate(-40deg) brightness(0.9) blur(0px);
   }
 }
-@keyframes Images_visibility-animation__7FuXf {
-  0%,
-  to {
-    opacity: 0;
+@keyframes blur-animation-free {
+  0% {
+    filter: blur(0px);
+  }
+  20% {
+    filter: blur(2px);
   }
   50% {
-    opacity: 1;
+    filter: blur(0px);
+  }
+  70% {
+    filter: blur(4px);
+  }
+  to {
+    filter: blur(0px);
   }
 }
+@keyframes bounce-animation-free {
+  0% {
+    translate: 10px 10px;
+  }
+  20% {
+    translate: 0px -10px;
+  }
+  50% {
+    translate: 0px 20px;
+  }
+  70% {
+    translate: 20px 20px;
+  }
+  to {
+    translate: 10px 10px;
+  }
+}
+ 
 @keyframes Hero_gradient-animation__0sEHD {
   0% {
     background-position: 0;
