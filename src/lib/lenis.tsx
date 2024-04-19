@@ -2,7 +2,7 @@ import Lenis from "@studio-freight/lenis";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 interface LenisContextProps {
-  lenis: Lenis | null;
+  lenis: (Lenis & { direction: 1 | -1 }) | null;
   update: () => void;
 }
 

@@ -11,6 +11,7 @@ import MotionPathPlugin from "gsap/dist/MotionPathPlugin";
 import useGsapUpdate from "@/lib/storage/useGsapUpdate";
 import { LenisProvider } from "@/lib/lenis";
 import Motion from "@/components/pages/index/hero/Motion";
+import { WebGLParticles } from "@/lib/utils/Particles";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -96,10 +97,12 @@ export default function RootLayout({
   }, [dependency]);
 
   return (
+    
     <Web3ModalProvider>
-      {!isMobile && <Motion />}
-      <Header />
       <LenisProvider>
+      {!isMobile && <Motion />}
+      <WebGLParticles size={isMobile ? 260 : 200} />
+        <Header />
         <main className={`${poppins.className} pb-64 h-full`}>{children}</main>
       </LenisProvider>
     </Web3ModalProvider>

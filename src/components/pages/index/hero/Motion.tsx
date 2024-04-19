@@ -1,11 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { useLenis, useScroll } from "@/lib/lenis";
+import useScrollDirection from "@/lib/utils/useScrollDirection";
 import { gsap } from "gsap";
-import MotionPathPlugin from "gsap/MotionPathPlugin";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 const Motion = () => {
+  const { lenis } = useLenis();
+  const dire = useScrollDirection(5);
   useEffect(() => {
+    var tween;
+
     // The start and end positions in terms of the page scroll
     const offsetFromTop = innerHeight * 1;
     //@ts-ignore
@@ -14,15 +19,17 @@ const Motion = () => {
     const finishDistance = startY + pathBB.height - offsetFromTop;
     let requestId: any = null;
     // the animation to use
-    var tween = gsap
+    let rotateTo = gsap.quickTo("#fazanavard", "rotation");
+
+    tween = gsap
       .to("#fazanavard", {
-        duration: 5,
+        duration: 10,
         paused: true,
         ease: "none",
         motionPath: {
           path: "#path",
           align: "#path",
-          autoRotate: true,
+          autoRotate: -135,
           alignOrigin: [0.5, 0.5],
         },
       })
@@ -43,7 +50,11 @@ const Motion = () => {
     function update() {
       // Update our animation
       tween.progress((scrollY - startY) / finishDistance);
-
+      if (lenis?.direction == 1) {
+        rotateTo(-45);
+      } else {
+        rotateTo(135);
+      }
       // Let the scroll event fire again
       //@ts-ignore
       requestId = null;
@@ -52,7 +63,7 @@ const Motion = () => {
     return () => {
       update();
     };
-  }, []);
+  }, [lenis]);
 
   return (
     <>
@@ -62,7 +73,7 @@ const Motion = () => {
         className=" absolute sm:w-[450px] w-[150px] sm:h-[300px] h-[100px] "
         src={"/assets/images/fazanavard.svg"}
       />
-      <div className="h-1 overflow-hidden relative">
+      <div className="h-1 overflow-hidden relative container">
         <svg
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
