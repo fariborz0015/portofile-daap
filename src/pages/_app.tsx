@@ -6,8 +6,7 @@ import { Toaster } from "react-hot-toast";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import raf from "@studio-freight/tempus";
-
-
+ 
 if (typeof window !== "undefined") {
   // Register the ScrollTrigger plugin with gsap
   gsap.registerPlugin(ScrollTrigger);
@@ -32,6 +31,7 @@ if (typeof window !== "undefined") {
 export default function App({ Component, pageProps }: AppProps) {
   return (
     // Render the RootLayout component
+
     <RootLayout>
       {/* Render the Toaster component with custom toastOptions */}
       <Toaster

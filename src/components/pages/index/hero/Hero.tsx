@@ -31,7 +31,7 @@ const Hero = () => {
         height={200}
         alt=""
       />
-      <div    id="fazanavard" className="sm:container max-w-[100%] h-[300px] mx-auto sm:overflow-visible overflow-hidden ">
+      <div     className="sm:container max-w-[100%] h-[400px] mx-auto sm:overflow-visible overflow-hidden ">
         <Lottie
      
           loop
@@ -40,6 +40,7 @@ const Hero = () => {
           play
           style={{ width: "100%", height: "auto" }}
         />
+        <Image alt="" src={'/assets/images/fazanavard.svg'} width={300} height={300} className="top-40 absolute animate-floating   sm:hidden block" />
       </div>
     </div>
   );

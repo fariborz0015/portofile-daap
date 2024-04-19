@@ -25,10 +25,7 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         glass: "hsl(var(--more-transparent-background))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
+        primary: "#007bff",
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
@@ -64,6 +61,11 @@ const config = {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
         },
+        floating: {
+          "0%,100%": { transform: " translate(0px,  0px)" },
+          "50%": { transform: "translate(55px, -15px)" },
+        
+        },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
@@ -72,6 +74,7 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        floating: "floating 8s ease-in-out infinite",
       },
     },
   },

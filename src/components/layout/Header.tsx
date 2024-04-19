@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { useLenis } from "@studio-freight/react-lenis";
 import { cn } from "@/lib/utils";
+import Menu from "./Menu";
 
 const Header = () => {
   const [active, setActive] = useState<boolean>(false);
@@ -28,30 +29,7 @@ const Header = () => {
         />
       </Link>
       <div className=" flex-1 flex items-center h-full gap-4">
-        <Button
-          variant={"ghost-glass"}
-          icon={{
-            icon: "line-md:account",
-          }}
-          arrowMode
-          underLineMode={{
-            className: "gradient-animation",
-          }}
-        >
-          About me
-        </Button>
-        <Button
-          variant={"ghost-glass"}
-          icon={{
-            icon: "line-md:account",
-          }}
-          arrowMode
-          underLineMode={{
-            className: "gradient-animation",
-          }}
-        >
-          Buy Coffee
-        </Button>
+        <Menu />
       </div>
       <div>
         <Button

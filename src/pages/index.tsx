@@ -1,23 +1,20 @@
 import BuyMeCoffee from "@/components/pages/index/BuyMeCoffee";
 import BuyMeCoffeeByContract from "@/components/pages/index/BuyMeCoffeeByContract";
 import WalletStatus from "@/components/pages/index/WalletStatus";
+import AboutMe from "@/components/pages/index/proto/AboutMe";
+import Experience from "@/components/pages/index/proto/Experience";
+import Skills from "@/components/pages/index/proto/Skills";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Icon } from "@iconify/react/dist/iconify.js";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect } from "react";
-import dynamic from "next/dynamic";
-import AboutMe from "@/components/pages/index/proto/AboutMe";
-import { CardTitle } from "@/components/ui/card";
-import Title from "@/components/utils/Title";
 import ActiveBox from "@/components/utils/ActiveBox";
+import Title from "@/components/utils/Title";
+import { Icon } from "@iconify/react/dist/iconify.js";
+import dynamic from "next/dynamic";
 const Hero = dynamic(() => import("@/components/pages/index/hero/Hero"), {
   ssr: false,
 });
 
 export default function Home() {
- 
   return (
     <>
       <div
@@ -25,9 +22,11 @@ export default function Home() {
       >
         {/* Hero Section   */}
         <Hero />
-        <ActiveBox className="w-40 h-40" light={{ lightColor: "blue", lightSize: 200 }}/>
-         
-   
+        <ActiveBox
+          className="w-40 h-40"
+          light={{ lightColor: "blue", lightSize: 200 }}
+        />
+
         <div className="container relative z-20  h-screen  flex items-center   justify-center   ">
           <div className="  sm:backdrop-blur-sm  pt-20 ">
             <h1 className="welcomeText">Fariborz Dapp</h1>
@@ -49,17 +48,42 @@ export default function Home() {
           </div>
         </div>
         {/* About me Section */}
-        <div className="w-full animated-container sm:container sm:p-0 p-6 space-y-4">
-          <Title title="Who Am I ?" description="my activity area" />
+        <div className="w-full  sm:container sm:p-0 p-6 space-y-4" id="summary">
+          <Title
+            title="Who Am I ?"
+            className="animated-container"
+            description="my activity area"
+          />
           <AboutMe />
         </div>
         {/* Skills Section */}
-        <div className="w-full animated-container sm:container sm:p-0 p-6 space-y-4 mt-14">
-          <Title title="Skills " description="And Tools" />
-          <AboutMe />
+
+        <div
+          className="w-full  sm:container sm:p-0 p-6 space-y-4 mt-14"
+          id="skills"
+        >
+          <Title
+            title="Skills "
+            className="animated-container"
+            description="And Tools"
+          />
+          <Skills />
         </div>
-      
-        {/* <div className="container  relative z-100  mt-40 max-w-[700px] justify-center   ">
+        {/* Work Experience  Section */}
+        <div
+          className="w-full  sm:container sm:p-0 p-6 space-y-4 mt-14"
+          id="experiences"
+        >
+          <Title
+            title="Skills "
+            className="animated-container"
+            description="And Tools"
+          />
+          <Experience />
+        </div>
+
+        {/* Wallet status */}
+        <div className="container  relative z-100  mt-40 max-w-[700px] justify-center   ">
           <div className="mt-4  ">
             <WalletStatus />
           </div>
@@ -79,7 +103,7 @@ export default function Home() {
               </div>
             </TabsContent>
           </Tabs>
-        </div> */}
+        </div>
       </div>
     </>
   );

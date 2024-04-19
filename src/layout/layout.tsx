@@ -3,12 +3,14 @@ import { Poppins } from "next/font/google";
 import { ReactLenis, useLenis } from "@studio-freight/react-lenis";
 import Header from "@/components/layout/Header";
 import useWindowSize from "@/lib/hooks/utils/useWindowSize";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
 import MotionPathPlugin from "gsap/dist/MotionPathPlugin";
+import useGsapUpdate from "@/lib/storage/useGsapUpdate";
+import { LenisProvider } from "@/lib/lenis";
+import Motion from "@/components/pages/index/hero/Motion";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -28,7 +30,7 @@ export default function RootLayout({
 }>) {
   const main = useRef<HTMLDivElement>(null);
   const isMobile = useWindowSize();
-
+  const { dependency } = useGsapUpdate();
   useGSAP(() => {
     // get boxes with .animated-container class name as as HTMLElement[]
     let boxes = document.querySelectorAll<HTMLElement>(".animated-container");
@@ -91,11 +93,15 @@ export default function RootLayout({
         },
       });
     });
-  });
+  }, [dependency]);
 
   return (
-    <ReactLenis root>
-      <main className={`${poppins.className}`}>{children}</main>
-    </ReactLenis>
+    <Web3ModalProvider>
+      {!isMobile && <Motion />}
+      <Header />
+      <LenisProvider>
+        <main className={`${poppins.className} pb-64 h-full`}>{children}</main>
+      </LenisProvider>
+    </Web3ModalProvider>
   );
 }
