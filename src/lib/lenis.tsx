@@ -1,8 +1,9 @@
 import Lenis from "@studio-freight/lenis";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
+type LenisC=Lenis & { direction: 1 | -1 }
 interface LenisContextProps {
-  lenis: (Lenis & { direction: 1 | -1 }) | null;
+  lenis: LenisC | null;
   update: () => void;
 }
 
@@ -16,7 +17,7 @@ interface LenisProviderProps {
 }
 
 export function LenisProvider(props: LenisProviderProps) {
-  const [lenis, setLenis] = useState<Lenis | null>(null);
+  const [lenis, setLenis] = useState<LenisC | null>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -24,7 +25,7 @@ export function LenisProvider(props: LenisProviderProps) {
       syncTouch: true,
       duration: 2,
       autoResize: true,
-    });
+    }) as LenisC
 
     setLenis(lenis);
 
@@ -56,7 +57,7 @@ export function LenisProvider(props: LenisProviderProps) {
           syncTouch: true,
           duration: 2,
           autoResize: true,
-        })
+        }) as LenisC
       ),
   };
 
