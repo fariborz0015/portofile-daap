@@ -17,7 +17,7 @@ export default function Title({ icon = 'line-md:compass-twotone-loop', title, de
         <Icon icon={icon}  className='size-7'/>
       </div>
       <div className={'sm:text-3xl text-2xl font-bold mt-2'}>{title}</div>
-      <div className={'sm:text-3xl text-2xl text-primary first-letter:uppercase font-extrabold '}>{description}</div>
+      <div className={'sm:text-3xl text-2xl text-gradient first-letter:uppercase font-extrabold '}>{description}</div>
     </div>
   )
 }

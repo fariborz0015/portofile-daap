@@ -17,6 +17,7 @@ const config = {
         "2xl": "1200px",
       },
     },
+
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -26,6 +27,7 @@ const config = {
         foreground: "hsl(var(--foreground))",
         glass: "hsl(var(--more-transparent-background))",
         primary: "#007bff",
+        'tx-gradient':'var(--gradient-title)',
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",

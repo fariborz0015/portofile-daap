@@ -43,6 +43,7 @@
       #6625ff 65%,
       #b721ff
     );
+    --gradient-title: linear-gradient(90deg, #257cff, #3b21ff);
   }
 
   .dark {
@@ -177,11 +178,21 @@
   background-size: 200% 100%;
 }
 .aboutme-text b {
+  @apply text-primary;
   text-transform: uppercase;
-  color: #257cff;
 }
 
- 
+.text-gradient {
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  background-image: var(--gradient-title);
+  background-position: 0;
+  background-size: 200% 100%;
+  width: -moz-fit-content;
+  width: fit-content;
+}
 
 @keyframes Images_planet-move__6TxmG {
   0% {
@@ -224,7 +235,7 @@
     transform: translate3d(0, 30px, 0) rotate(1turn);
   }
 }
- 
+
 @keyframes blur-animation {
   0% {
     filter: hue-rotate(-40deg) brightness(0.9) blur(2px);
@@ -267,7 +278,7 @@
     translate: 10px 10px;
   }
 }
- 
+
 @keyframes Hero_gradient-animation__0sEHD {
   0% {
     background-position: 0;
