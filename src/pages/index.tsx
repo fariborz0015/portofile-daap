@@ -77,7 +77,7 @@ export default function Home() {
           id="experiences"
         >
           <Title
-            title="Skills "
+            title="Education "
             className="animated-container"
             description="And Tools"
           />
@@ -86,7 +86,7 @@ export default function Home() {
         {/* Education  Section */}
         <div
           className="w-full  sm:container sm:p-0 p-6 space-y-4 mt-14"
-          id="experiences"
+          id="educations"
         >
           <Title
             title="Education "
@@ -95,10 +95,10 @@ export default function Home() {
           />
           <Education />
         </div>
-        {/* Education  Section */}
+        {/* Languages  Section */}
         <div
           className="w-full  sm:container sm:p-0 p-6 space-y-4 mt-14"
-          id="experiences"
+          id="languages"
         >
           <Title
             title="Languages "
@@ -109,7 +109,7 @@ export default function Home() {
         </div>
 
         {/* Wallet status */}
-        <div className="container  relative z-100  mt-40 max-w-[700px] justify-center   ">
+        <div id="coffee" className="container  relative z-100  mt-40 max-w-[700px] justify-center   ">
           <div className="mt-4  ">
             <WalletStatus />
           </div>

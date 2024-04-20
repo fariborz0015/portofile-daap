@@ -42,6 +42,7 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
+  justIcon?: boolean;
   isLoading?: boolean;
   icon?: IconProps;
   loadingIcon?: Partial<IconProps>;
@@ -69,6 +70,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       underLineMode,
       arrowMode,
       arrowIcon,
+      justIcon,
       ...props
     },
     ref
@@ -77,18 +79,25 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const [hover, setHover] = React.useState(false);
     const iconRef = React.useRef(null);
     const [iconWidth, setIconWidth] = React.useState(null);
+    const [key, stKey] = React.useState(Date.now());
     React.useEffect(() => {
       //@ts-ignore
       setIconWidth(iconRef?.current?.clientWidth ?? 20);
     }, [iconRef]);
-
+ 
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
+        onMouseEnter={() => {
+          setHover(true);
+          stKey(Date.now());
+        }}
+        onMouseLeave={() => {
+          setHover(false);
+          stKey(Date.now());
+        }}
         disabled={isLoading || props.disabled}
         type={type}
       >
@@ -102,35 +111,39 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           <>
             {icon && (
               <Icon
+                key={key + "_ICOn"}
                 {...icon}
                 className={cn(
-                  "me-2 transition-all size-5 relative",
+                  !justIcon && "me-2",
+                  " transition-all size-5 relative",
                   icon.className,
-                  arrowMode && "  group-hover:opacity-0"
+                  arrowMode && !justIcon && "  group-hover:opacity-0"
                 )}
                 ref={iconRef}
               />
             )}
-            <div
-              style={{
-                translate:
-                  hover && arrowMode
-                    ? `-${iconWidth && iconWidth + 5}px`
-                    : "0px",
-              }}
-              className={cn(
-                "flex gap-2 transition-all justify-between items-center h-full",
-                hover && arrowMode && ` relative`
-              )}
-            >
-              {children}
-            </div>
+            {!justIcon && (
+              <div
+                style={{
+                  translate:
+                    hover && !justIcon && arrowMode
+                      ? `-${iconWidth && iconWidth + 5}px`
+                      : "0px",
+                }}
+                className={cn(
+                  "flex gap-2 transition-all justify-between items-center h-full",
+                  hover && arrowMode && !justIcon && ` relative`
+                )}
+              >
+                {children}
+              </div>
+            )}
 
-            {arrowMode && (
+            {!justIcon && arrowMode && (
               <Icon
                 icon={"line-md:chevron-right"}
                 {...arrowIcon}
-                key={hover + "s"}
+                key={hover + "_arrow"}
                 className="end-2 absolute size-5 transition-all opacity-0  group-hover:opacity-100"
               />
             )}

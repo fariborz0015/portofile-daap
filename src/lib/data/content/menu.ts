@@ -5,14 +5,15 @@ export interface MenuLinkInterface {
   }
   
   export const MENU_LINKS: MenuLinkInterface[] = [
-    { id: 'summary', text: 'Summary', icon: 'ic:baseline-route' },
-    { id: 'skills', text: 'Skills', icon: 'ci:bulb' },
+    { id: 'summary', text: 'Summary', icon: 'line-md:roundabout-right' },
+    { id: 'skills', text: 'Skills', icon: 'line-md:lightbulb' },
     {
       id: 'experiences',
       text: 'Work Experience',
-      icon: 'ci:suitcase',
+      icon: 'line-md:briefcase',
     },
-    { id: 'projects', text: 'Projects', icon: 'ci:window-code-block' },
+  
     { id: 'educations', text: 'Education', icon: 'ci:book-open' },
     { id: 'languages', text: 'Languages', icon: 'ci:planet' },
+    { id: 'coffee', text: 'Coffee', icon: 'line-md:buy-me-a-coffee-twotone' },
   ]

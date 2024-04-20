@@ -7,6 +7,7 @@ import useGsapUpdate from "@/lib/storage/useGsapUpdate";
 import { WebGLParticles } from "@/lib/utils/Particles";
 import { poppins } from "@/lib/utils/fonts";
 import { useGSAP } from "@gsap/react";
+import { ReactLenis } from "@studio-freight/react-lenis";
 import gsap from "gsap";
 import MotionPathPlugin from "gsap/dist/MotionPathPlugin";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -90,12 +91,16 @@ export default function RootLayout({
 
   return (
     <Web3ModalProvider>
-      <LenisProvider>
-        {!isMobile && <Motion />}
-        <WebGLParticles size={isMobile ? 260 : 200} />
-        <Header />
-        <main className={`${poppins.className} pb-64 h-full`}>{children}</main>
-      </LenisProvider>
+      <ReactLenis root>
+        <LenisProvider>
+          {!isMobile && <Motion />}
+          <WebGLParticles size={isMobile ? 260 : 200} />
+          <Header />
+          <main className={`${poppins.className} pb-64 h-full`}>
+            {children}
+          </main>
+        </LenisProvider>
+      </ReactLenis>
     </Web3ModalProvider>
   );
 }
