@@ -1,24 +1,16 @@
-import Web3ModalProvider from "@/contexts";
-import { Poppins } from "next/font/google";
-import { ReactLenis, useLenis } from "@studio-freight/react-lenis";
 import Header from "@/components/layout/Header";
+import Motion from "@/components/pages/index/hero/Motion";
+import Web3ModalProvider from "@/contexts";
 import useWindowSize from "@/lib/hooks/utils/useWindowSize";
-import { useEffect, useRef, useState } from "react";
+import { LenisProvider } from "@/lib/lenis";
+import useGsapUpdate from "@/lib/storage/useGsapUpdate";
+import { WebGLParticles } from "@/lib/utils/Particles";
+import { poppins } from "@/lib/utils/fonts";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import MotionPathPlugin from "gsap/dist/MotionPathPlugin";
-import useGsapUpdate from "@/lib/storage/useGsapUpdate";
-import { LenisProvider } from "@/lib/lenis";
-import Motion from "@/components/pages/index/hero/Motion";
-import { WebGLParticles } from "@/lib/utils/Particles";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-poppins",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useRef } from "react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, useGSAP);
@@ -97,11 +89,10 @@ export default function RootLayout({
   }, [dependency]);
 
   return (
-    
     <Web3ModalProvider>
       <LenisProvider>
-      {!isMobile && <Motion />}
-      <WebGLParticles size={isMobile ? 260 : 200} />
+        {!isMobile && <Motion />}
+        <WebGLParticles size={isMobile ? 260 : 200} />
         <Header />
         <main className={`${poppins.className} pb-64 h-full`}>{children}</main>
       </LenisProvider>

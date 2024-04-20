@@ -2,7 +2,9 @@ import BuyMeCoffee from "@/components/pages/index/BuyMeCoffee";
 import BuyMeCoffeeByContract from "@/components/pages/index/BuyMeCoffeeByContract";
 import WalletStatus from "@/components/pages/index/WalletStatus";
 import AboutMe from "@/components/pages/index/proto/AboutMe";
+import Education from "@/components/pages/index/proto/Education";
 import Experience from "@/components/pages/index/proto/Experience";
+import Languages from "@/components/pages/index/proto/Languages";
 import Skills from "@/components/pages/index/proto/Skills";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -80,6 +82,30 @@ export default function Home() {
             description="And Tools"
           />
           <Experience />
+        </div>
+        {/* Education  Section */}
+        <div
+          className="w-full  sm:container sm:p-0 p-6 space-y-4 mt-14"
+          id="experiences"
+        >
+          <Title
+            title="Education "
+            className="animated-container"
+            description="Academic Background"
+          />
+          <Education />
+        </div>
+        {/* Education  Section */}
+        <div
+          className="w-full  sm:container sm:p-0 p-6 space-y-4 mt-14"
+          id="experiences"
+        >
+          <Title
+            title="Languages "
+            className="animated-container"
+            description="Communication Skills"
+          />
+          <Languages />
         </div>
 
         {/* Wallet status */}

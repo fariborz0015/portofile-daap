@@ -9,8 +9,6 @@ const Motion = () => {
   const { lenis } = useLenis();
   const dire = useScrollDirection(5);
   useEffect(() => {
-    var tween;
-
     // The start and end positions in terms of the page scroll
     const offsetFromTop = innerHeight * 1;
     //@ts-ignore
@@ -19,9 +17,9 @@ const Motion = () => {
     const finishDistance = startY + pathBB.height - offsetFromTop;
     let requestId: any = null;
     // the animation to use
-    let rotateTo = gsap.quickTo("#fazanavard", "rotation");
+    const rotateTo = gsap.quickTo("#fazanavard", "rotation");
 
-    tween = gsap
+    const tween = gsap
       .to("#fazanavard", {
         duration: 10,
         paused: true,
