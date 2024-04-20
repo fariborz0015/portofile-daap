@@ -2,12 +2,7 @@ import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
-  content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
-  ],
+  content: ["./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
     container: {
@@ -27,7 +22,7 @@ const config = {
         foreground: "hsl(var(--foreground))",
         glass: "hsl(var(--more-transparent-background))",
         primary: "#007bff",
-        'tx-gradient':'var(--gradient-title)',
+        "tx-gradient": "var(--gradient-title)",
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
@@ -66,7 +61,6 @@ const config = {
         floating: {
           "0%,100%": { transform: " translate(0px,  0px)" },
           "50%": { transform: "translate(55px, -15px)" },
-        
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
@@ -81,6 +75,7 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
+ 
 } satisfies Config;
 
 export default config;
