@@ -13,7 +13,7 @@ const AboutMe = () => {
           <Image
             src={"/assets/images/avatar.jpg"}
             fill
-            className="rounded-full -scale-x-100 rotate-[20deg] !relative  !h-[200px]   !w-[200px]  "
+            className="rounded-full -scale-x-100   !relative  !h-[200px]   !w-[200px]  "
             alt="فریبرز شالقونی پور- Fariborz shalghooni por "
           />
         </div>

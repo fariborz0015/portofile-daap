@@ -49,7 +49,7 @@ const Header = () => {
           ></Button>
         )}
 
-        <div>
+        <Link href={"/assets/cv/fariborz-shalghooni-front-end.pdf"}>
           <Button
             key={"s"}
             variant={"glass"}
@@ -63,7 +63,7 @@ const Header = () => {
           >
             My Resume
           </Button>
-        </div>
+        </Link>
       </div>
       {isMobile && <Menu />}
     </>

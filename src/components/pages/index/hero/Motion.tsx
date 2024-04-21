@@ -21,12 +21,13 @@ const Motion = () => {
 
     const tween = gsap
       .to("#fazanavard", {
-        duration: 10,
+        duration: 1500,
         paused: true,
         ease: "none",
         motionPath: {
           path: "#path",
           align: "#path",
+          
           autoRotate: -135,
           alignOrigin: [0.5, 0.5],
         },
