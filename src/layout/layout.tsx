@@ -42,8 +42,8 @@ export default function RootLayout({
         opacity: 1,
         scrollTrigger: {
           trigger: box,
-          start: isMobile ? "300px bottom" : "100px bottom",
-          end: isMobile ? "650px bottom" : "450px bottom",
+          start: isMobile ? "400px bottom" : "100px bottom",
+          end: isMobile ? "100px bottom" : "450px bottom",
           scrub: true,
         },
       });
@@ -57,12 +57,12 @@ export default function RootLayout({
         opacity: 1,
         scrollTrigger: {
           trigger: box,
-          start: isMobile ? "350px bottom" : "150px bottom",
+          start: isMobile ? "50px bottom" : "150px bottom",
           end:
             boxes.length - 1 === index
               ? "bottom bottom"
               : isMobile
-              ? "700px bottom"
+              ? "400px bottom"
               : "500px bottom",
           scrub: true,
         },
@@ -76,12 +76,12 @@ export default function RootLayout({
         opacity: 1,
         scrollTrigger: {
           trigger: box,
-          start: isMobile ? "350px bottom" : "150px bottom",
+          start: isMobile ? "50px bottom" : "150px bottom",
           end:
             boxes.length - 1 === index
               ? "bottom bottom"
               : isMobile
-              ? "700px bottom"
+              ? "400px bottom"
               : "500px bottom",
           scrub: true,
         },
