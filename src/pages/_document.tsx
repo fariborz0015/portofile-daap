@@ -18,14 +18,14 @@ export default function Document() {
           property="og:description"
           content={`I'm  Fariborz Shalghouni , a seasoned professional with over  5 years  of experience in Front-End development , specializing in Web3 technologies`}
         />
-        <meta property="og:image" content="/assets/images/avatar.jpg" />
+        <meta property="og:image" content="https://fariborz.vercel.app/assets/images/avatar.jpg" />
         <meta property="og:url" content="http://fariborz.vercel.app" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           property="twitter:description"
           content={`I'm  Fariborz Shalghouni , a seasoned professional with over  5 years  of experience in Front-End development , specializing in Web3 technologies`}
         />
-        <meta property="twitter:image" content="/assets/images/avatar.jpg" />
+        <meta property="twitter:image" content="https://fariborz.vercel.app/assets/images/avatar.jpg" />
         <meta property="twitter:url" content="http://fariborz.vercel.app" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
