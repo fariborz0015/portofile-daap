@@ -18,7 +18,14 @@ export default function Document() {
           content={`I'm  Fariborz Shalghouni , a seasoned professional with over  5 years  of experience in Front-End development , specializing in Web3 technologies`}
         />
         <meta property="og:image" content="/images/avatar.jpg" />
-        <meta property="og:url" content="http://yourwebsite.com" />
+        <meta property="og:url" content="http://fariborz.vercel.app" />
+        <meta
+          property="twitter:description"
+          content={`I'm  Fariborz Shalghouni , a seasoned professional with over  5 years  of experience in Front-End development , specializing in Web3 technologies`}
+        />
+        <meta property="twitter:image" content="/images/avatar.jpg" />
+        <meta property="twitter:url" content="http://fariborz.vercel.app" />
+
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
