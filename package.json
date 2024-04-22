@@ -20,6 +20,8 @@
     "@studio-freight/react-lenis": "^0.0.47",
     "@studio-freight/tempus": "^0.0.44",
     "@tanstack/react-query": "^5.29.2",
+    "@vercel/analytics": "^1.2.2",
+    "@vercel/speed-insights": "^1.0.10",
     "@web3modal/wagmi": "^4.1.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
