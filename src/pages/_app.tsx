@@ -6,7 +6,8 @@ import { Toaster } from "react-hot-toast";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import raf from "@studio-freight/tempus";
- 
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 if (typeof window !== "undefined") {
   // Register the ScrollTrigger plugin with gsap
   gsap.registerPlugin(ScrollTrigger);
@@ -41,6 +42,8 @@ export default function App({ Component, pageProps }: AppProps) {
       />
       {/* Render the Component with its props */}
       <Component {...pageProps} />;
+      <SpeedInsights />
+      <Analytics />
     </RootLayout>
   );
 }
