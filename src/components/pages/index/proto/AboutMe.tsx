@@ -87,6 +87,22 @@ const AboutMe = () => {
           </Button>
         </Link>
         <Link
+          href={"https://twitter.com/fariborzz_ir"}
+          className="sm:w-fit w-full"
+        >
+          <Button
+            size={"lg"}
+            variant={"glass"}
+            className="sm:w-fit w-full"
+            arrowMode
+            underLineMode
+            icon={{ icon: "jam:twitter-square" }}
+          >
+            {" "}
+            MY Twitter
+          </Button>
+        </Link>
+        <Link
           href={"https://github.com/fariborz0015"}
           className="sm:w-fit w-full"
         >
