@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import ActiveBox from "@/components/utils/ActiveBox";
 import { MY_SKILLS } from "@/lib/data/content/my-skills";
 import { useLenis } from "@/lib/lenis";
+import useGsapUpdate from "@/lib/storage/useGsapUpdate";
 import { cn } from "@/lib/utils";
 import { Icon, type IconProps } from "@iconify/react/dist/iconify.js";
 
@@ -56,6 +57,7 @@ const SkilItem = ({
 const Skills = () => {
   const [limit, setLimit] = useState<boolean>(true);
   const { lenis } = useLenis();
+  const {update}=useGsapUpdate()
 
   // Handler to toggle the limit and trigger resize after 500ms
   const showMoreHandler = () => {
@@ -64,6 +66,7 @@ const Skills = () => {
     // make sure that the items loaded in dom and scroll increased
     setTimeout(() => {
       lenis?.resize?.();
+      update()
     }, 500);
   };
 
