@@ -109,7 +109,10 @@ export default function Home() {
         </div>
 
         {/* Wallet status */}
-        {/* <div id="coffee" className="container  relative z-100  mt-40 max-w-[700px] justify-center   ">
+        <div
+          id="coffee"
+          className="container  relative z-100  mt-40 max-w-[700px] justify-center   "
+        >
           <div className="mt-4  ">
             <WalletStatus />
           </div>
@@ -129,7 +132,7 @@ export default function Home() {
               </div>
             </TabsContent>
           </Tabs>
-        </div> */}
+        </div>
       </div>
     </>
   );

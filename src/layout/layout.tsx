@@ -21,7 +21,6 @@ const ReactLenis = dynamic(
   { ssr: false }
 );
 
-
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, useGSAP);
 }
@@ -98,18 +97,18 @@ export default function RootLayout({
   }, [dependency]);
 
   return (
-    // <Web3ModalProvider>
-    <ReactLenis root>
-      <LenisProvider>
-        <WebGLParticles size={isMobile ? 260 : 200} />
-        <Header />
+    <Web3ModalProvider>
+      <ReactLenis root>
+        <LenisProvider>
+          <WebGLParticles size={isMobile ? 260 : 200} />
+          <Header />
 
-        <main className={`${poppins.className} pb-64 h-fit overflow-hidden`}>
-          {!isMobile && <Motion />}
-          {children}
-        </main>
-      </LenisProvider>
-    </ReactLenis>
-    // </Web3ModalProvider>
+          <main className={`${poppins.className} pb-64 h-fit overflow-hidden`}>
+            {!isMobile && <Motion />}
+            {children}
+          </main>
+        </LenisProvider>
+      </ReactLenis>
+    </Web3ModalProvider>
   );
 }
