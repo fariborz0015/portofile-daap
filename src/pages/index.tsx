@@ -38,14 +38,14 @@ export default function Home() {
           property="og:description"
           content={`I'm  Fariborz Shalghouni , a seasoned professional with over  5 years  of experience in Front-End development , specializing in Web3 technologies`}
         />
-        <meta property="og:image" content="https://fariborz.vercel.app/avatar.jpg" />
+        <meta property="og:image" content="https://fariborz.vercel.app/pwa/screen/desktop.png" />
         <meta property="og:url" content="https://fariborz.vercel.app" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           property="twitter:description"
           content={`I'm  Fariborz Shalghouni , a seasoned professional with over  5 years  of experience in Front-End development , specializing in Web3 technologies`}
         />
-        <meta property="twitter:image" content="https://fariborz.vercel.app/avatar.jpg/avatar.jpg" />
+        <meta property="twitter:image" content="https://fariborz.vercel.app/pwa/screen/desktop.png" />
         <meta property="twitter:url" content="https://fariborz.vercel.app" />
 
         <meta property="twitter:title" content=" Fariborz Shalghooni por - Senior FrontEnd Developer"/>
