@@ -12,6 +12,7 @@ import ActiveBox from "@/components/utils/ActiveBox";
 import Title from "@/components/utils/Title";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import dynamic from "next/dynamic";
+import Head from "next/head";
 const Hero = dynamic(() => import("@/components/pages/index/hero/Hero"), {
   ssr: false,
 });
@@ -19,6 +20,9 @@ const Hero = dynamic(() => import("@/components/pages/index/hero/Hero"), {
 export default function Home() {
   return (
     <>
+      <Head>
+        <title>Fariborz Shalghouni por</title>
+      </Head>
       <div
         className={`flex min-h-screen flex-col items-center justify-between   `}
       >

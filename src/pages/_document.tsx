@@ -34,7 +34,7 @@ export default function Document() {
         <meta property="twitter:url" content="https://fariborz.vercel.app" />
 
   
-        <title>Fariborz Shalghouni por</title>
+     
       </Head>
       <body>
    
