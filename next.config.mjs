@@ -6,7 +6,7 @@ const withPwa = nextPWA({
   dest: "public",
   register: true,
   scope: "/",
-  disable: process.env.NODE_ENV === "development",
+  disable: false,
 });
 const nextConfig = {
   reactStrictMode: true,

@@ -1,3 +1,4 @@
+// Importing necessary modules from their respective locations
 import { Button } from "@/components/ui/button";
 import ActiveBox from "@/components/utils/ActiveBox";
 import { MY_COMPANIES } from "@/lib/data/content/my-comapnies";
@@ -7,12 +8,15 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import Image from "next/image";
 import React, { useState } from "react";
 
+// Defining the interface for the ExperienceItem
 export interface ExperienceItemI {
   title: string;
   logo: string;
   website: string;
   comments: string[];
 }
+
+// Defining the functional component ExperienceItem using destructuring
 const ExperienceItem = ({
   comments,
   logo,
@@ -21,6 +25,7 @@ const ExperienceItem = ({
 }: ExperienceItemI) => {
   return (
     <div className="col-span-1 w-full space-y-4 ">
+      {/* Creating a button with Image and Title */}
       <Button
         className="w-full !h-fit  animated-container rounded-xl flex justify-start items-center "
         variant={"glass"}
@@ -36,6 +41,7 @@ const ExperienceItem = ({
       </Button>
 
       <>
+        {/* Mapping through the comments array and rendering ActiveBox for each comment */}
         {comments.map((comment, index) => {
           let isLast = index + 1 == comments.length;
           let isOod = index % 2 == 0;
@@ -72,19 +78,26 @@ const ExperienceItem = ({
   );
 };
 
+// Defining the functional component Experience
 const Experience = () => {
   const [limit, setLimit] = useState<boolean>(true);
-  const { update: updateLenis } = useLenis();
+  const { lenis } = useLenis();
+
+  // Handler to toggle the limit and trigger resize after 500ms
   const showMoreHandler = () => {
     setLimit((prev) => !prev);
-    updateLenis();
+
+    // make sure that the items loaded in dom and scroll increased
+    setTimeout(() => {
+      lenis?.resize?.();
+    }, 500);
   };
+
   return (
     <>
       <div
         className={cn(
           "w-full grid sm:grid-cols-2 grid-cols-1 transition-all gap-x-8 gap-y-5",
-
           limit ? "max-h-[400px] overflow-hidden" : ""
         )}
       >
@@ -94,6 +107,7 @@ const Experience = () => {
       </div>
 
       <div className="col-span-full flex justify-center">
+        {/* Button to show more or less based on the limit state */}
         <Button
           onClick={showMoreHandler}
           variant={"glass"}
@@ -111,4 +125,5 @@ const Experience = () => {
   );
 };
 
+// Exporting the Experience component as default
 export default Experience;

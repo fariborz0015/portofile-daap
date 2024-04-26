@@ -1,13 +1,14 @@
+// Importing necessary modules from their respective locations
 import { Button } from "@/components/ui/button";
 import ActiveBox from "@/components/utils/ActiveBox";
 import { MY_SKILLS } from "@/lib/data/content/my-skills";
 import { useLenis } from "@/lib/lenis";
-import useGsapUpdate from "@/lib/storage/useGsapUpdate";
 import { cn } from "@/lib/utils";
 import { Icon, type IconProps } from "@iconify/react/dist/iconify.js";
 
-import React, { useState } from "react";
+import { useState } from "react";
 
+// Defining the interface for the SkillItemProps
 export interface SkillItemPropsI {
   icon: IconProps;
   title: string;
@@ -20,6 +21,7 @@ export interface SkillItemPropsI {
   className?: string;
 }
 
+// Defining the functional component SkilItem using destructuring
 const SkilItem = ({
   groupIcon,
   icon,
@@ -50,27 +52,36 @@ const SkilItem = ({
   </ActiveBox>
 );
 
+// Defining the functional component Skills
 const Skills = () => {
   const [limit, setLimit] = useState<boolean>(true);
-  const { update: lenisUpdate } = useLenis();
+  const { lenis } = useLenis();
+
+  // Handler to toggle the limit and trigger resize after 500ms
   const showMoreHandler = () => {
     setLimit((prev) => !prev);
-    lenisUpdate();
+
+    // make sure that the items loaded in dom and scroll increased
+    setTimeout(() => {
+      lenis?.resize?.();
+    }, 500);
   };
+
   return (
     <>
       <div
         className={cn(
           "w-full grid sm:grid-cols-4 grid-cols-1 transition-all gap-x-8 gap-y-4",
-
           limit ? "max-h-[400px] overflow-hidden" : ""
         )}
       >
+        {/* Mapping through MY_SKILLS and rendering each skill item */}
         {MY_SKILLS.map((group, index) => {
           return group.children.map((skill, index) => (
             <SkilItem
               key={skill.title}
               {...skill}
+              // Adding conditional classNames based on group type
               className={cn(
                 index % 2 == 0
                   ? "animated-container"
@@ -84,6 +95,7 @@ const Skills = () => {
         })}
       </div>
       <div className="col-span-full flex justify-center">
+        {/* Button to show more or less based on the limit state */}
         <Button
           onClick={showMoreHandler}
           variant={"glass"}
@@ -101,4 +113,5 @@ const Skills = () => {
   );
 };
 
+// Exporting the Skills component as default
 export default Skills;

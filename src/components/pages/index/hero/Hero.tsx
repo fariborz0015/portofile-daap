@@ -11,8 +11,8 @@ const Hero = () => {
       <Image
         src={"/assets/images/moons.webp"}
         className="Images_hollowplanets__NOFlf"
-        width={1300}
-        height={1300}
+        width={500}
+        height={500}
         alt=""
       />
       <div className="planet">
@@ -31,16 +31,21 @@ const Hero = () => {
         height={200}
         alt=""
       />
-      <div     className="sm:container max-w-[100%] h-[400px] mx-auto sm:overflow-visible overflow-hidden ">
+      <div className="sm:container max-w-[100%] h-[400px] mx-auto sm:overflow-visible overflow-hidden ">
         <Lottie
-     
           loop
           animationData={astronautAnimation}
           className="blur-animation-free sm:relative    top-2 sm:scale-100 scale-150   "
           play
           style={{ width: "100%", height: "auto" }}
         />
-        <Image alt="" src={'/assets/images/fazanavard.svg'} width={300} height={300} className="top-40 absolute animate-floating   sm:hidden block" />
+        <Image
+          alt=""
+          src={"/assets/images/fazanavard.svg"}
+          width={300}
+          height={300}
+          className="top-40 absolute animate-floating   sm:hidden block"
+        />
       </div>
     </div>
   );

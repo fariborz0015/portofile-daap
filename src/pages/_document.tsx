@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-title-in-document-head */
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
@@ -15,6 +16,10 @@ export default function Document() {
         />
         <meta name="card" content="summary_large_image" />
         <meta
+          name="description"
+          content={`I'm  Fariborz Shalghouni , a seasoned professional with over  5 years  of experience in Front-End development , specializing in Web3 technologies`}
+        />
+        <meta
           property="og:description"
           content={`I'm  Fariborz Shalghouni , a seasoned professional with over  5 years  of experience in Front-End development , specializing in Web3 technologies`}
         />
@@ -28,8 +33,7 @@ export default function Document() {
         <meta property="twitter:image" content="/avatar.jpg" />
         <meta property="twitter:url" content="https://fariborz.vercel.app" />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  
         <title>Fariborz Shalghouni por</title>
       </Head>
       <body>

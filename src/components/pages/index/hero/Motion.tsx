@@ -1,13 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { useLenis, useScroll } from "@/lib/lenis";
-import useScrollDirection from "@/lib/utils/useScrollDirection";
+import { useLenis } from "@/lib/lenis";
 import { gsap } from "gsap";
 import { useEffect } from "react";
 
 const Motion = () => {
   const { lenis } = useLenis();
-  const dire = useScrollDirection(5);
+
   useEffect(() => {
     // The start and end positions in terms of the page scroll
     const offsetFromTop = innerHeight * 1;
@@ -27,7 +26,7 @@ const Motion = () => {
         motionPath: {
           path: "#path",
           align: "#path",
-          
+
           autoRotate: -135,
           alignOrigin: [0.5, 0.5],
         },
@@ -49,6 +48,7 @@ const Motion = () => {
     function update() {
       // Update our animation
       tween.progress((scrollY - startY) / finishDistance);
+
       if (lenis?.direction == 1) {
         rotateTo(-45);
       } else {
@@ -62,7 +62,7 @@ const Motion = () => {
     return () => {
       update();
     };
-  }, [lenis]);
+  }, []);
 
   return (
     <>
@@ -72,7 +72,7 @@ const Motion = () => {
         className=" absolute sm:w-[450px] w-[150px] sm:h-[300px] h-[100px] "
         src={"/assets/images/fazanavard.svg"}
       />
-      <div className="h-1 overflow-hidden relative container">
+      <div className="h-[1]  left-1/2 -translate-x-1/2  absolute overflow-hidden  top-0 container">
         <svg
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +92,7 @@ const Motion = () => {
           c-99.1,128.2,3.2,448,206,601c262,197.6,570.8,25.4,697,212c75.2,111.2,53.7,302.9-43,390c-183.4,165.2-540.1-133.1-698,10
           c-153.7,139.3-44.8,629.7,192,723c183.1,72.1,348.6-130.1,475-43c119.9,82.6,131.8,375.6,0,497c-186.6,171.8-554.8-98.2-687,53
           c-94.5,108.1-48.8,408.7,169,528c153.9,84.3,352.7,55.7,486-74"
-            stroke="black"
+            stroke="white"
             strokeWidth="8"
           />
         </svg>

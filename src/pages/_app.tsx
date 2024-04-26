@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import raf from "@studio-freight/tempus";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import Head from 'next/head'
 if (typeof window !== "undefined") {
   // Register the ScrollTrigger plugin with gsap
   gsap.registerPlugin(ScrollTrigger);
@@ -32,18 +33,22 @@ if (typeof window !== "undefined") {
 export default function App({ Component, pageProps }: AppProps) {
   return (
     // Render the RootLayout component
-
-    <RootLayout>
-      {/* Render the Toaster component with custom toastOptions */}
-      <Toaster
-        toastOptions={{
-          className: "!bg-gray-800 bg-opacity-20 border !text-white",
-        }}
-      />
-      {/* Render the Component with its props */}
-      <Component {...pageProps} />;
-      <SpeedInsights />
-      <Analytics />
-    </RootLayout>
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+      <RootLayout>
+        {/* Render the Toaster component with custom toastOptions */}
+        <Toaster
+          toastOptions={{
+            className: "!bg-gray-800 bg-opacity-20 border !text-white",
+          }}
+        />
+        {/* Render the Component with its props */}
+        <Component {...pageProps} />
+        <SpeedInsights />
+        <Analytics />
+      </RootLayout>
+    </>
   );
 }
