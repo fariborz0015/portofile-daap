@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 import Motion from "@/components/pages/index/hero/Motion";
+import Web3ModalProvider from "@/contexts";
 import useWindowSize from "@/lib/hooks/utils/useWindowSize";
 import { LenisProvider } from "@/lib/lenis";
 import useGsapUpdate from "@/lib/storage/useGsapUpdate";
@@ -87,18 +88,18 @@ export default function RootLayout({
   }, [dependency]);
 
   return (
-    // <Web3ModalProvider>
-    <ReactLenis root>
-      <LenisProvider>
-        <WebGLParticles size={isMobile ? 260 : 200} />
-        <Header />
+    <Web3ModalProvider>
+      <ReactLenis root>
+        <LenisProvider>
+          <WebGLParticles size={isMobile ? 260 : 200} />
+          <Header />
 
-        <main className={`${poppins.className} pb-64 h-fit overflow-hidden`}>
-          {!isMobile && <Motion />}
-          {children}
-        </main>
-      </LenisProvider>
-    </ReactLenis>
-    // </Web3ModalProvider>
+          <main className={`${poppins.className} pb-64 h-fit overflow-hidden`}>
+            {!isMobile && <Motion />}
+            {children}
+          </main>
+        </LenisProvider>
+      </ReactLenis>
+    </Web3ModalProvider>
   );
 }
