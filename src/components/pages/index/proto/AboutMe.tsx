@@ -18,7 +18,7 @@ const AboutMe = () => {
           />
         </div>
         <div className="flex-1 min-w-[300px]  ">
-          <p className="aboutme-text text-justify   ">
+          <p className="aboutme-text text-justify   break-words">
             Greetings!
              I'm <strong>Fariborz Shalghouni</strong>, a seasoned
             professional with over <strong>5 years</strong> of experience in{" "}
