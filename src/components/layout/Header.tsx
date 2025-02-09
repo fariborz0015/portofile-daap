@@ -49,7 +49,7 @@ const Header = () => {
           ></Button>
         )}
 
-        <Link href={"/assets/cv/fariborz-shalghooni-front-end.pdf"}>
+        <Link href={"/assets/cv/fariborz-shalghooni-front-end-09336186568.pdf"}>
           <Button
             key={"s"}
             variant={"glass"}
