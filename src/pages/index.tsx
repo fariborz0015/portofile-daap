@@ -72,13 +72,7 @@ export default function Home() {
                 coffee by your crypto currency
               </span>
             </p>
-            <Button variant={"glass"} className="mt-4 gap-4">
-              <Icon
-                icon={"akar-icons:github-outline-fill"}
-                className="size-6"
-              />
-              This Project on Github
-            </Button>
+     
           </div>
         </div>
         {/* About me Section */}

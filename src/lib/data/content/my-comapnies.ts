@@ -3,7 +3,31 @@ import React from "react";
 
 export const MY_COMPANIES: ExperienceItemI[] = [
   {
-    title: "Silver Age",
+    title: "Idealween.com - Tehran",
+    logo: "/assets/images/companies/idealween.png",
+    website: "",
+    comments: [
+      "Senior Front-End Developer / Tech lead ",
+      "Led cross-functional teams in feature planning and development, collaborated with stakeholders to define requirements, and designed scalable database schemas aligning with business goal",
+      "Developed clean and modular front-end codebases using modern frameworks like Next.js and React.js, conducted thorough code reviews, and implemented robust testing environments for reliable software delivery",
+      "Mentored junior developers, facilitated knowledge-sharing sessions on Web3 and PWA technologies, and contributed to UI/UX discussions to enhance product design and team capabilities",
+      "Technologies:NextJS 15 , ReactJS , SurveyJs , Antd , TailwindCss , Seo , Zustand , TanStack Query",
+    ],
+  },
+  {
+    title: "Celeste-AI - USA ",
+    logo: "/assets/images/companies/celeste.png",
+    website: "",
+    comments: [
+      "Senior Front-End Developer  ",
+      "Developed high-performance web applications by optimizing algorithms and implementing advanced effects like drag-and-drop functionalities using DnD Kit, while ensuring seamless front-end and back-end integration.",
+      "Designed intuitive UI/UX interfaces, provided UX guidance to front-end developers, and collaborated closely to enhance user experience and streamline interactions across platforms",
+      "Engineered robust back-end solutions using NestJS, designed RESTful APIs and database schemas, and authored comprehensive technical documentation to support scalable and maintainable systems",
+      "Technologies:NextJS, ReactJS , Material Ui , DnD kit , Component style ,sass , Redux , NestJs , Progress DB, TanStack Query",
+    ],
+  },
+  {
+    title: "Silver Age - Mashhad",
     logo: "/assets/images/companies/silverage.png",
     website: "",
     comments: [
@@ -15,7 +39,7 @@ export const MY_COMPANIES: ExperienceItemI[] = [
     ],
   },
   {
-    title: "ExModule",
+    title: "ExModule - Turkey",
     logo: "/assets/images/companies/exmodule.png",
     website: "",
     comments: [
@@ -26,7 +50,7 @@ export const MY_COMPANIES: ExperienceItemI[] = [
     ],
   },
   {
-    title: "Rootip Company",
+    title: "Rootip.io UK ",
     logo: "/assets/images/companies/rootip.png",
     website: "",
     comments: [
@@ -37,7 +61,7 @@ export const MY_COMPANIES: ExperienceItemI[] = [
     ],
   },
   {
-    title: "Balaban Company",
+    title: "Balaban - Isfahan",
     logo: "/assets/images/companies/balaban.jpg",
     website: "",
     comments: [
@@ -48,7 +72,7 @@ export const MY_COMPANIES: ExperienceItemI[] = [
     ],
   },
   {
-    title: "Taksa Company",
+    title: "Taksa - Karaj ",
     logo: "/assets/images/companies/taksa.png",
     website: "",
     comments: [
@@ -59,7 +83,7 @@ export const MY_COMPANIES: ExperienceItemI[] = [
     ],
   },
   {
-    title: "MihanService Company",
+    title: "Mihan Service - Gorgan",
     logo: "/assets/images/companies/mihanservice.png",
     website: "",
     comments: [
